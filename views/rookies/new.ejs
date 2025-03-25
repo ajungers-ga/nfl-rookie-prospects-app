@@ -1,0 +1,15 @@
+<%- include("../partials/header") %>
+
+<h2><%= rookie.name %></h2>
+<p><strong>Position:</strong> <%= rookie.position %></p>
+<p><strong>Team:</strong> <%= rookie.team %></p>
+
+<a href="/rookies/<%= rookie._id %>/edit">✏️ Edit</a>
+
+<form action="/rookies/<%= rookie._id %>?_method=DELETE" method="POST" style="display:inline;">
+  <button type="submit">🗑️ Delete</button>
+</form>
+
+<a href="/rookies">⬅ Back to All Rookies</a>
+
+<%- include("../partials/footer") %>

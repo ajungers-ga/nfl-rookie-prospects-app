@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Rookie Prospects</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <%- include("../partials/header") %>
+
+  <h1>All Rookie Prospects</h1>
+
+  <a href="/rookies/new">Add New Rookie</a>
+
+  <ul>
+    <% rookies.forEach(rookie => { %>
+      <li>
+        <a href="/rookies/<%= rookie._id %>"><%= rookie.name %></a> - <%= rookie.position %> - <%= rookie.college %>
+      </li>
+    <% }) %>
+  </ul>
+
+  <%- include("../partials/footer") %>
+</body>
+</html>

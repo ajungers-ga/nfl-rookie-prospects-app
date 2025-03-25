@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= rookie.name %> Details</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <%- include("../partials/header") %>
+
+  <h1><%= rookie.name %></h1>
+  <p><strong>Position:</strong> <%= rookie.position %></p>
+  <p><strong>College:</strong> <%= rookie.college %></p>
+  <p><strong>Relative Rank:</strong> (Position):<%= rookie.rank %></p>
+
+  <a href="/rookies/<%= rookie._id %>/edit">Edit</a>
+
+  <form action="/rookies/<%= rookie._id %>?_method=DELETE" method="POST">
+    <button type="submit">Delete</button>
+  </form>
+
+  <%- include("../partials/footer") %>
+</body>
+</html>
