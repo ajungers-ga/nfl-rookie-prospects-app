@@ -1,7 +1,49 @@
+<!-- purpose of this file:
+ 1.  this ejs template renders the "edit Rookie" form
+ 2.  the form comes pre filled with the existing data
+ 3.  the form sends a PUT request to /rookies/:id to update the database
+
+ this file is related to:
+1. the edit function in controllers/prospects.js (lines 35-39)
+2. triggered when the user clicks the edit button, they visit /rookies/:id/edit
+3. the form submits to the PUT route controllers/prospects.js (lines 41-46)
+4. the view is rendered using data from controllers/prospects.js (lines 35-39)
+-->
+
+
 <%- include("../partials/header") %>
 
 <h2>Edit Rookie: <%= rookie.name %></h2>
 
+<!-- BELOW = form submits to update route using method override for PUT -->
 <form action="/rookies/<%= rookie._id %>?_method=PUT" method="POST">
+
+  <!-- BELOW = name input, pre-filled -->
   <label for="name">Name:</label>
-  <input type="text" id="name" name="name" value="<%=
+  <input type="text" id="name" name="name" value="<%= rookie.name %>">
+
+  <!-- BELOW = position select dropdown -->
+  <label for="position">Position:</label>
+  <select name="position" id="position">
+    <option value="QB" <%= rookie.position === "QB" ? "selected" : "" %>>QB</option>
+    <option value="RB" <%= rookie.position === "RB" ? "selected" : "" %>>RB</option>
+    <option value="WR" <%= rookie.position === "WR" ? "selected" : "" %>>WR</option>
+    <option value="TE" <%= rookie.position === "TE" ? "selected" : "" %>>TE</option>
+  </select>
+
+  <!-- BELOW = college attended input -->
+  <label for="college">College:</label>
+  <input type="text" id="college" name="college" value="<%= rookie.college %>">
+
+  <!-- BELOW = positional rank input -->
+  <label for="rank">Prospect Rank:</label>
+  <input type="number" step="0.1" id="rank" name="rank" value="<%= rookie.rank %>">
+
+  <!-- BELOW = NEEDS WORK!-->
+  <label for="projectedDraftPosition">Projected Draft Position:</label>
+  <input type="text" id="projectedDraftPosition" name="projectedDraftPosition" value="<%= rookie.projectedDraftPosition %>">
+
+  <!-- BELOW = submit button to save changes -->
+  <button type="submit">Save Changes</button>
+
+</form>

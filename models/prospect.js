@@ -9,7 +9,7 @@ const prospectSchema = new mongoose.Schema({
   },
   college: String,
   rank: Number, // Prospect position rank
-  projectedDraftPosition: String // Example: "1st Round", "Top 10", "Day 2"
+  image: String
 });
 
 const Prospect = mongoose.model("Prospect", prospectSchema);

@@ -1,13 +1,24 @@
+// purpose of this file = 
+// 1. export an array of rookie data
+// 2. I manually researched this data and compiled from online sources
+// 3. I built excel first, then hand-typed into this file to match that sheet
+// 4. this data is used to seed the MongoDB database 
+
+// see comments lines 344
+
 const rookieProspects = [
     {
-      name: "Cameron Ward",
+      name: "Cam Ward",
       position: "QB",
+      image: "prospectCamWard.jpg",
       college: "Miami (FL)",
       rank: 1.0
+      
     },
     {
       name: "Shedeur Sanders",
       position: "QB",
+      
       college: "Colorado",
       rank: 2.0
     },
@@ -328,5 +339,16 @@ const rookieProspects = [
     }
   ];
   
-  module.exports = rookieProspects;
+
+// BELOW = exports the rookieProspects array so it can be imported and used in other files
+module.exports = rookieProspects;
+
+//ABOVE = rookieProspects is referenced in my seed/seed.js (lines 18 & 27)
+
+
+
+
+
+
+
   

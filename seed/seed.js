@@ -1,3 +1,11 @@
+// seed.js purpose = 
+// 1. connect to mongo
+// 2. import the prospect model
+// 3. import the data from rookieProspects
+// 4. wipe the database (please dont)
+// 5. insert the new data
+
+
 const mongoose = require("mongoose");
 require("dotenv").config();
 

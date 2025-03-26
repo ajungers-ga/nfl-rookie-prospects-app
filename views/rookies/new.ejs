@@ -1,15 +1,27 @@
 <%- include("../partials/header") %>
 
-<h2><%= rookie.name %></h2>
-<p><strong>Position:</strong> <%= rookie.position %></p>
-<p><strong>Team:</strong> <%= rookie.team %></p>
+<h2>Add a New Rookie Prospect</h2>
 
-<a href="/rookies/<%= rookie._id %>/edit">✏️ Edit</a>
+<form action="/rookies" method="POST">
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name" value="<%= rookie.name || '' %>">
 
-<form action="/rookies/<%= rookie._id %>?_method=DELETE" method="POST" style="display:inline;">
-  <button type="submit">🗑️ Delete</button>
+  <label for="position">Position:</label>
+  <select name="position" id="position">
+    <option value="QB" <%= rookie.position === 'QB' ? 'selected' : '' %>>QB</option>
+    <option value="RB" <%= rookie.position === 'RB' ? 'selected' : '' %>>RB</option>
+    <option value="WR" <%= rookie.position === 'WR' ? 'selected' : '' %>>WR</option>
+    <option value="TE" <%= rookie.position === 'TE' ? 'selected' : '' %>>TE</option>
+  </select>
+
+  <label for="college">College:</label>
+  <input type="text" name="college" id="college" value="<%= rookie.college || '' %>">
+
+  <label for="rank">Prospect Rank:</label>
+  <input type="number" step="0.1" name="rank" id="rank" value="<%= rookie.rank || '' %>">
+
+  <label for="projectedDraftPosition">Projected Draft Position:</label>
+  <input type="text" name="projectedDraftPosition" id="projectedDraftPosition" value="<%= rookie.projectedDraftPosition || '' %>">
+
+  <button type="submit">Add Rookie</button>
 </form>
-
-<a href="/rookies">⬅ Back to All Rookies</a>
-
-<%- include("../partials/footer") %>
